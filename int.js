@@ -5,15 +5,30 @@ function createBoard(size){
   let numDivs= size * size;
   for(let i=0; i<numDivs; i++ ){
    const div = document.createElement('div');
-   div.style.backgroundColor='yellow';
+   div.style.border='1px solid white';
    board.insertAdjacentElement("beforeend", div);
 
   }
-  
-    
 }
-createBoard(10);
+createBoard(16);
+function newResolution(){
+  const input = prompt("please select a resolution from 1 to 100");
+  const message = document.getElementById('message');
+  if (input == "") {
+    message.innerHTML = "provide a resolution";
+  } else if (input < 0 || input > 100) {
+    message.innerHTML = "select a resolution from 1 to 100";
+  } else {
+    message.innerHTML = "play";
+    return input;
+  }
 
+}
+const resolution = document.getElementById('resolution');
+resolution.addEventListener("click", function(){
+  const size = newResolution();
+  createBoard(size);
+})
 
 
 
