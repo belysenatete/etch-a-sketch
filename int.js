@@ -1,3 +1,7 @@
+const color = document.getElementById('color');
+const eraserBtn = document.getElementById('eraserBtn');
+let draw = false;
+
 function createBoard(size){
     const board = document.querySelector('.board');
     board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -6,13 +10,16 @@ function createBoard(size){
   for(let i=0; i<numDivs; i++ ){
    const div = document.createElement('div')
    div.classList.add('board-cells');
-   div.addEventListener('mouseover', function(){
-   div.style.backgroundColor = 'black'
+   color.addEventListener('change', function(){
+    div.addEventListener('mouseover', function(){
+        const selectedColor = color.value;
+        div.style.backgroundColor = selectedColor;
+    })
    })
    board.insertAdjacentElement("beforeend", div);
 
   }
-  const clear = document.getElementById('clear');
+  const clear = document.getElementById('clearBtn');
   clear.addEventListener('click', function(){
   
   })
@@ -32,16 +39,23 @@ function newResolution(){
   }
 
 }
-const resolution = document.getElementById('resolution');
+const resolution = document.getElementById('resolutionBtn');
 resolution.addEventListener("click", function(){
   const size = newResolution();
   createBoard(size);
 })
-//reseting 
+//reseting
+
 function clearBoard(){
   const divs = document.querySelectorAll('.board-cells');
-  divs.forEach((div) => div.style.backgroundColor = '#0B6623')
+  divs.forEach((div) => div.style.backgroundColor = 'white')
 }
+function erase(){
+  draw = false;
+  color.value = '#ffffff'
+}
+eraserBtn.addEventListener('click', erase);
+
 
 
 

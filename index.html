@@ -12,11 +12,13 @@
     <p id="message"></p>
     <div class="container">
         <div class="controllers">
-            <input class="button" id="draw-color" type="color" name="color">
-            <!--<button>Color Picker</button>-->
-            <button class="button">Eraser</button>
-            <button class="button" id="clear" onclick="clearBoard()">Clear</button>
-            <button class="button" id="resolution">resolution</button>
+            <div class="color-btn">
+                <p style="color: white;font-size: 15px;font-weight: 600;">Choose a color</p>
+                <input id="color" type="color" name="color">
+            </div>
+            <button class="button" id="eraserBtn" onclick="eraseColor()">Eraser</button>
+            <button class="button" id="clearBtn" onclick="clearBoard()">Clear</button>
+            <button class="button" id="resolutionBtn">resolution</button>
         </div>
         <div class="board">
         </div>
