@@ -9,8 +9,9 @@ h1 {
     font-weight: 600;
 }
 #message {
+    position: absolute;
     color: #fff;
-    text-align: center;
+    left: 650px;
     font-size: 25px;
     font-weight: 300; 
 }
